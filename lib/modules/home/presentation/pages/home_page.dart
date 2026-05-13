@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:notebook_control_desktop/core/router/app_paths.dart';
+import 'package:notebook_control_desktop/modules/home/presentation/widgets/side_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,6 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(),
       backgroundColor: const Color(0xFF0F172A),
       body: Row(
         children: [
@@ -38,13 +42,20 @@ class HomePage extends StatelessWidget {
 
                 const SizedBox(height: 30),
 
-                _SideItem(
+                SideItem(
                   icon: Icons.dashboard,
                   label: 'Dashboard',
                   selected: true,
+                  onTap: () {},
                 ),
 
-                _SideItem(icon: Icons.settings, label: 'Settings'),
+                SideItem(
+                  icon: Icons.settings,
+                  label: 'Settings',
+                  onTap: () {
+                    context.go(AppPaths.settings);
+                  },
+                ),
               ],
             ),
           ),
@@ -57,7 +68,7 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'System Monitor',
+                    'Painel de Monitoramento',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 26,
@@ -123,42 +134,6 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _SideItem extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  final bool selected;
-
-  const _SideItem({
-    required this.icon,
-    required this.label,
-    this.selected = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-      decoration: BoxDecoration(
-        color: selected
-            ? Colors.blueAccent.withOpacity(0.15)
-            : Colors.transparent,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        children: [
-          Icon(icon, color: selected ? Colors.blueAccent : Colors.white54),
-          const SizedBox(width: 10),
-          Text(
-            label,
-            style: TextStyle(color: selected ? Colors.white : Colors.white54),
           ),
         ],
       ),

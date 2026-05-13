@@ -1,0 +1,7 @@
+{
+  "@@locale": "en",
+  "initializing_server_label": "Initializing Server",
+  "connecting_label": "Connecting",
+  "connected_label": "Connected",
+  "start_server_error_label": "Error trying to start the server."
+}

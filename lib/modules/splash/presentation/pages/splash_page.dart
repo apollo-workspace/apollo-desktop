@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:notebook_control_desktop/core/l10n/app_localizations.dart';
 import 'package:notebook_control_desktop/modules/splash/domain/enums/server_status_enum.dart';
 import 'package:notebook_control_desktop/modules/splash/presentation/controllers/splash_controller.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,6 @@ class _SplashPageState extends State<SplashPage> {
     _controller = context.read<SplashController>();
 
     _controller.initialize();
-
     _controller.addListener(() async {
       if (_controller.serverStatus == ServerStatusEnum.connected) {
         await Future.delayed(Duration(seconds: 1));
@@ -31,6 +31,8 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    final locale = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: const Color(0xFF0F172A),
       body: Center(
@@ -63,7 +65,6 @@ class _SplashPageState extends State<SplashPage> {
                 letterSpacing: 1.2,
               ),
             ),
-
             const SizedBox(height: 12),
 
             Consumer<SplashController>(
@@ -71,7 +72,7 @@ class _SplashPageState extends State<SplashPage> {
                 return Column(
                   children: [
                     Text(
-                      controller.serverStatus.label,
+                      controller.serverStatus.label(locale),
                       style: TextStyle(
                         color: Colors.white.withOpacity(.6),
                         fontSize: 16,

@@ -18,15 +18,15 @@ O sistema deve receber comandos remotos em tempo real através de conexão socke
 
 O sistema deve permitir conexão simultânea de múltiplos dispositivos clientes.
 
-## RF003 - Abertura do Spotify
+## RF003 - COMANDO: Abertura do Spotify
 
 O sistema deve permitir a abertura do Spotify através de comando remoto.
 
-## RF004 - Abertura do Explorador de Arquivos
+## RF004 - COMANDO: Abertura do Explorador de Arquivos
 
 O sistema deve permitir a abertura do explorador de arquivos do sistema operacional.
 
-## RF005 - Abertura do Navegador
+## RF005 - COMANDO: Abertura do Navegador
 
 O sistema deve permitir a abertura do navegador Google Chrome através de comando remoto.
 
