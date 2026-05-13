@@ -30,3 +30,4 @@ doc/api/
 .idea/
 .dart_tool/
 build/
+devtools_options.yaml
